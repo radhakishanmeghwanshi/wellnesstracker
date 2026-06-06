@@ -23,6 +23,11 @@ app.use(cors({
       return callback(null, true);
     }
     
+    // Allow any Vercel deployment domain
+    if (origin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
+    
     if (origin === corsOrigin) {
       return callback(null, true);
     }
